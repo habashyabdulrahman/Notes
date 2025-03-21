@@ -13,6 +13,7 @@
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
+  height: 100vh;
   background-color: var(--clr-bg);
   min-height: 100svh;
   color: var(--clr-primary);
@@ -32,6 +33,11 @@ h1 {
 p {
     color: #ffffff;
     margin: 20px 0;
+ }
+
+ hr {
+    margin-top: 10px;
+    border: 1.5px solid #333;
  }
 
 textarea,
