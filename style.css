@@ -8,14 +8,20 @@
   --clr-bg: #222;
   --clr-primary: #fff;
   --clr-secondary: #075985;
+  --clr-button: royalblue;
+  --clr-note-bg: rgba(50, 50, 50, 0.655);
+  --clr-border: #ccc;
+  --clr-hover: rgb(143, 143, 143);
+  --clr-danger: #ff4757;
+  --clr-warning: #ffa502;
+  --radius: 15px;
+  --transition: all 0.2s ease;
 }
 
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
-  height: 100vh;
   background-color: var(--clr-bg);
-  min-height: 100svh;
   color: var(--clr-primary);
   background-image: radial-gradient(
     circle,
@@ -23,22 +29,21 @@ body {
     rgba(0, 0, 0, 0) 1px
   );
   background-size: 40px 40px;
-  overflow: hidden;
 
 }
 
 h1 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 p {
-    margin: 20px 0;
- }
+  margin: 20px 0;
+}
 
- hr {
-    margin-top: 10px;
-    border: 1.5px solid #333;
- }
+hr {
+  margin-top: 10px;
+  border: 1.5px solid #333;
+}
 
 textarea,
 input {
@@ -46,16 +51,16 @@ input {
   padding: 10px;
   margin-bottom: 10px;
   color: #ffffff;
-  background-color: rgba(50, 50, 50, 0.655);
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  transition: all .2s ease;
+  background-color: var(--clr-note-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  transition: var(--transition);
 }
 
-textarea:focus ,
+textarea:focus,
 input:focus {
   outline: none;
-  border: 1px solid rgb(143, 143, 143)
+  border: 1px solid var(--clr-hover);
 }
 
 .actions {
@@ -65,29 +70,60 @@ input:focus {
   align-items: center;
 }
 
-.actions button {
-  padding: 10px;
-  background-color: royalblue;
-  color: white;
-  cursor: pointer;
-}
-
 .add {
   margin-bottom: 1rem;
 }
 
 .note {
-  background-color: rgba(50, 50, 50, 0.655);
+  background-color: var(--clr-note-bg);
   padding: 15px;
   margin-bottom: 10px;
-  border-radius: 15px;
+  border-radius: var(--radius);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-button {
+.note h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.note-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.note-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.note-actions button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.note-actions button.edit {
+  color: var(--clr-warning);
+}
+
+.note-actions button.delete {
+  color: var(--clr-danger);
+}
+
+.btn {
   font-family: inherit;
   font-size: 15px;
-  background: royalblue;
+  background: var(--clr-button);
   color: white;
   padding: 0.7em 1em;
   padding-left: 0.9em;
@@ -96,35 +132,35 @@ button {
   border: none;
   border-radius: 16px;
   overflow: hidden;
-  transition: all 0.2s;
+  transition: var(--transition);
   cursor: pointer;
 }
 
-button span {
+.btn span {
   display: block;
   margin-left: 0.3em;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
-button svg {
+.btn svg {
   display: block;
   transform-origin: center center;
   transition: transform 0.3s ease-in-out;
 }
 
-button:hover .svg-wrapper {
+.btn:hover .svg-wrapper {
   animation: fly-1 0.6s ease-in-out infinite alternate;
 }
 
-button:hover svg {
+.btn:hover svg {
   transform: translateX(1.2em) rotate(45deg) scale(1.1);
 }
 
-button:hover span {
+.btn:hover span {
   transform: translateX(5em);
 }
 
-button:active {
+.btn:active {
   transform: scale(0.95);
 }
 

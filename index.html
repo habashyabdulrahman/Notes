@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ar" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NOTES App</title>
-    <link rel="shortcut icon" href="notes.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <title>Notes Web App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/4c47838536.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <h1>Notes App</h1>
     <input type="text" id="title" placeholder="Title" />
     <textarea id="content" rows="5" placeholder="Description"></textarea>
-    <button class="add" onclick="addNote()">
+    <button class="add btn" onclick="handleAddOrEdit()">
       <div class="svg-wrapper-1">
         <div class="svg-wrapper">
           <svg
@@ -26,7 +26,7 @@
           </svg>
         </div>
       </div>
-      <span>ADD</span>
+      <span id="addButtonText">ADD</span>
     </button>
 
     <div id="notesList"></div>
