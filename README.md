@@ -80,6 +80,6 @@ This application runs independently in the browser and does not communicate with
 
 ## 📜 License & Author
 
-**Author:** [Habashy Abdulrahman / habashyabdulrahman]
+**Author:** Habashy Abdulrahman / habashyabdulrahman
 
 This project is licensed under the MIT License - see the LICENSE file for details.
