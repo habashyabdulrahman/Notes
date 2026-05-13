@@ -1,4 +1,3 @@
-```markdown
 # 📝 Notes App
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -33,8 +32,6 @@ The **Notes App** is a fast, lightweight, and fully responsive client-side web a
 ├── index.html     # Application markup, form inputs, and UI layout
 ├── style.css      # Custom styling, responsive design, and CSS animations
 └── notes.png      # Favicon (Icon asset)
-
-```
 
 ## 🚀 Getting Started / Installation
 
