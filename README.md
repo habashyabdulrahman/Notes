@@ -53,7 +53,7 @@ git clone [https://github.com/habashyabdulrahman/Notes](https://github.com/habas
 
 2. Navigate to the project directory:
 ```bash
-cd notes-app
+cd Notes
 
 ```
 
