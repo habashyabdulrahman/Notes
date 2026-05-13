@@ -83,7 +83,3 @@ This application runs independently in the browser and does not communicate with
 **Author:** [Habashy Abdulrahman / habashyabdulrahman]
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-```
-
-```
