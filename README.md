@@ -11,18 +11,20 @@ The **Notes App** is a fast, lightweight, and fully responsive client-side web a
 
 ## 💻 Tech Stack
 
-* **Frontend:** HTML5, CSS3 (Custom Properties, Flexbox, Animations)
-* **Scripting:** Vanilla JavaScript (ES6+)
-* **Storage:** Browser `localStorage` API
-* **Assets:** FontAwesome (Icons), Google Fonts (DM Sans, Space Mono)
+* **Frontend:** HTML5, CSS3 (Custom Properties, Flexbox, Animations).
+* **Scripting:** Vanilla JavaScript (ES6+).
+* **Storage:** Browser `localStorage` API.
+* **Assets:** FontAwesome (Icons), Google Fonts (DM Sans, Space Mono).
 
 ## ✨ Features
 
 * **CRUD Functionality:** Create, read, update, and delete notes with a clean, intuitive interface.
-* **Persistent Storage:** Automatically saves notes and edits to the browser's `localStorage`.
-* **Smart Search:** Real-time filtering of notes by title or description content.
+* **Pinning System:** Pin important notes to the top of your list for quick access.
+* **Tagging:** Organize your thoughts by adding custom tags, separated by commas.
+* **Persistent Storage:** Automatically saves notes, pinned states, and edits to the browser's `localStorage`.
+* **Smart Search:** Real-time filtering of notes by title, description content, or tags.
 * **Dynamic Timestamps:** Automatically calculates and displays human-readable creation/edit times (e.g., "just now", "5 minutes ago", "yesterday").
-* **Share Capabilities:** Integrates the native Web Share API with an automatic fallback to Telegram sharing if native sharing is unsupported.
+* **Share Capabilities:** Integrates the native Web Share API with an automatic fallback to Telegram sharing via URL encoding if native sharing is unsupported.
 * **Interactive UI/UX:** Features interactive empty states, animated toast notifications for user actions, inline delete confirmations, and a dynamic character counter for note titles (max 60 characters).
 
 ## 📂 Folder Structure
@@ -32,49 +34,44 @@ The **Notes App** is a fast, lightweight, and fully responsive client-side web a
 ├── index.html     # Application markup, form inputs, and UI layout
 ├── style.css      # Custom styling, responsive design, and CSS animations
 └── notes.png      # Favicon (Icon asset)
+```
 
 ## 🚀 Getting Started / Installation
 
 Since this project is completely client-side and requires no build tools or package managers, running it locally is incredibly straightforward.
 
 **Prerequisites:**
-
 * Any modern web browser (Chrome, Firefox, Safari, Edge).
 * *Optional:* A local server extension like VS Code "Live Server" for auto-reloading.
 
 **Installation Steps:**
 
 1. Clone the repository:
-```bash
-git clone [https://github.com/habashyabdulrahman/Notes](https://github.com/habashyabdulrahman/Notes)
-
-```
-
+   ```bash
+   git clone [https://github.com/habashyabdulrahman/Notes](https://github.com/habashyabdulrahman/Notes)
+   ```
 
 2. Navigate to the project directory:
-```bash
-cd Notes
+   ```bash
+   cd Notes
+   ```
 
-```
-
-
-3. Open the application:
-Simply double-click the `index.html` file to open it in your default browser, or serve it using your preferred local development server.
+3. Open the application: 
+   Simply double-click the `index.html` file to open it in your default browser, or serve it using your preferred local development server.
 
 ## 🔐 Environment Variables
 
-This project is entirely client-side and relies on native browser APIs.
+This project is entirely client-side and relies on native browser APIs. 
 
 | Variable | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | N/A | N/A | **No environment variables or `.env` file are required for this project.** |
 
 ## 🔌 API Documentation
 
-This application runs independently in the browser and does not communicate with external REST or GraphQL APIs.
+This application runs independently in the browser and does not communicate with external REST or GraphQL APIs. 
 
 **Data Flow:**
-
 * Data is serialized to JSON and stored locally via `localStorage.setItem("notes", JSON.stringify(notes))`.
 * Data is retrieved and parsed on load via `JSON.parse(localStorage.getItem("notes"))`.
 

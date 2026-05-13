@@ -482,3 +482,37 @@ p {
   from { transform: translateY(0.1em); }
   to   { transform: translateY(-0.1em); }
 }
+
+/* Pin */
+
+.note-actions button.pin {
+  color: #ffd43b;
+}
+
+.note.pinned {
+  border-color: rgba(255, 212, 59, 0.35);
+}
+
+/* Tags */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.tag {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* Preserve spacing */
+
+.note-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+}

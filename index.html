@@ -1,74 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes App</title>
-    <link rel="shortcut icon" href="notes.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/4c47838536.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div class="app-wrapper">
-      <header>
-        <h1>Notes App</h1>
-        <span class="note-count" id="noteCount">0 notes</span>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-      <div class="form-card" id="formCard">
-        <div class="edit-banner" id="editBanner">
-          <i class="fa-solid fa-pen"></i>
-          <span id="editBannerText">Editing note</span>
-        </div>
-        <div class="input-group">
-          <input type="text" id="title" placeholder="Title" maxlength="60" oninput="updateCharCount()" />
-          <span class="char-count" id="charCount">0 / 60</span>
-        </div>
-        <textarea id="content" rows="8" placeholder="Description"></textarea>
-        <div class="form-actions">
-          <button class="btn-cancel" id="cancelBtn" onclick="cancelEdit()" style="display:none">
-            Cancel
-          </button>
-          <button class="btn add" onclick="handleAddOrEdit()">
-            <div class="svg-wrapper-1"><div class="svg-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                <path fill="none" d="M0 0h24v24H0z"></path>
-                <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-              </svg>
-            </div></div>
-            <span id="addButtonText">ADD</span>
-          </button>
-        </div>
+  <title>Notes App</title>
+
+  <link rel="shortcut icon" href="notes.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <script
+    src="https://kit.fontawesome.com/4c47838536.js"
+    crossorigin="anonymous"
+  ></script>
+</head>
+
+<body>
+
+  <div class="app-wrapper">
+
+    <header>
+      <h1>Notes App</h1>
+      <span class="note-count" id="noteCount">0 notes</span>
+    </header>
+
+    <!-- Form -->
+
+    <div class="form-card" id="formCard">
+
+      <div class="edit-banner" id="editBanner">
+        <i class="fa-solid fa-pen"></i>
+        <span id="editBannerText">Editing note</span>
       </div>
 
-      <div class="search-bar">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="Search notes…" oninput="filterNotes()" />
-        <button class="clear-search" id="clearSearch" onclick="clearSearch()" style="display:none">
-          <i class="fa-solid fa-xmark"></i>
+      <div class="input-group">
+        <input
+          type="text"
+          id="title"
+          placeholder="Title"
+          maxlength="60"
+          oninput="updateCharCount()"
+        />
+
+        <span class="char-count" id="charCount">
+          0 / 60
+        </span>
+      </div>
+
+      <textarea
+        id="content"
+        rows="8"
+        placeholder="Description"
+      ></textarea>
+
+      <input
+        type="text"
+        id="tags"
+        placeholder="Tags separated by commas"
+      />
+
+      <div class="form-actions">
+
+        <button
+          class="btn-cancel"
+          id="cancelBtn"
+          onclick="cancelEdit()"
+          style="display:none"
+        >
+          Cancel
         </button>
+
+        <button
+          class="btn add"
+          onclick="handleAddOrEdit()"
+        >
+
+          <div class="svg-wrapper-1">
+            <div class="svg-wrapper">
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+
+                <path
+                  fill="currentColor"
+                  d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                ></path>
+              </svg>
+
+            </div>
+          </div>
+
+          <span id="addButtonText">ADD</span>
+
+        </button>
+
       </div>
 
-      <div id="notesList"></div>
-
-      <div class="empty-state" id="emptyState" style="display:none">
-        <i class="fa-regular fa-note-sticky"></i>
-        <p>No notes yet. Add one above!</p>
-      </div>
-
-      <div class="empty-search" id="emptySearch" style="display:none">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <p>No notes match your search.</p>
-      </div>
     </div>
 
-    <div class="toast" id="toast">
-      <i class="fa-solid fa-check"></i>
-      <span id="toastMsg">Note saved</span>
+    <!-- Search -->
+
+    <div class="search-bar">
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search notes..."
+        oninput="filterNotes()"
+      />
+
+      <button
+        class="clear-search"
+        id="clearSearch"
+        onclick="clearSearch()"
+        style="display:none"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
     </div>
 
-    <script src="app.js"></script>
-  </body>
+    <!-- Notes -->
+
+    <div id="notesList"></div>
+
+    <!-- Empty -->
+
+    <div
+      class="empty-state"
+      id="emptyState"
+      style="display:none"
+    >
+      <i class="fa-regular fa-note-sticky"></i>
+      <p>No notes yet. Add one above!</p>
+    </div>
+
+    <div
+      class="empty-search"
+      id="emptySearch"
+      style="display:none"
+    >
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <p>No notes match your search.</p>
+    </div>
+
+  </div>
+
+  <!-- Toast -->
+
+  <div class="toast" id="toast">
+
+    <i class="fa-solid fa-check"></i>
+
+    <span id="toastMsg">
+      Note saved
+    </span>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
 </html>
